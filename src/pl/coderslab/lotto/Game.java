@@ -16,27 +16,62 @@ public class Game {
 	}
 	
 	static Integer[] lotto () {
-		
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		
-		while (sc.hasNextInt()) {
-			//fill in array with 6 elements from user
-			break;
-			
-		}
-		
 				
-
-		Integer[] arr = new Integer[49];
-		for (int i=0; i<arr.length; i++) {
-			arr[i] = i+1;
+		Integer[] lottoNum = new Integer[49];
+			for (int i=0; i<49; i++) {
+				lottoNum[i] = i+1;
+			}
+			
+		Collections.shuffle(Arrays.asList(lottoNum));
+		Integer[] shuffledNum = Arrays.copyOf(lottoNum, 6);
+		System.out.println(Arrays.toString(lottoNum));
+				
+		Integer[] pickedNum = new Integer [6];
+			
+		
+		for (int i=0; i<pickedNum.length; i++) {
+			try {
+				while (true) {
+				System.out.print("Pick your numbers: ");
+				Scanner sc = new Scanner(System.in);
+				Integer n = Integer.parseInt(sc.next());
+				if(n>=1 && n<=49) {
+			
+				pickedNum[i] = n;
+				break;
+			
+				}else if (n>49 || n<1) {
+				
+				System.out.println("Out of range number");
+								
+				}else if (pickedNum.contains(n)) {
+				
+				System.out.println("Pick a different number");
+										
+				}
+				}
+			}catch (Exception e) {
+				System.out.println("This is not a number");
+				i--;
+				}
+						
 		}
-		Collections.shuffle(Arrays.asList(arr));
-		Integer[] copyArray = Arrays.copyOf(arr, 6);
+		
+		System.out.println("liczby użytkownika "+Arrays.toString(pickedNum));
+		System.out.println(Arrays.toString(shuffledNum));
+		
+		
+		
+		
+//		sc.close();
+		return shuffledNum;
+		
+		
+			
 	
-		sc.close();
-		return copyArray;
+		
+	
+	
 	}
 		
 }
