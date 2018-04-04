@@ -1,5 +1,6 @@
 package pl.coderslab.lotto;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
@@ -27,6 +28,7 @@ public class Game {
 		System.out.println(Arrays.toString(lottoNum));
 				
 		Integer[] pickedNum = new Integer [6];
+	
 			
 		
 		for (int i=0; i<pickedNum.length; i++) {
@@ -39,15 +41,17 @@ public class Game {
 			
 				pickedNum[i] = n;
 				break;
-			
+				
 				}else if (n>49 || n<1) {
 				
 				System.out.println("Out of range number");
 								
-				}else if (pickedNum.contains(n)) {
+				}else if (pickedNum[i].contains) {//sprawdzić!!
 				
 				System.out.println("Pick a different number");
+				i--;
 										
+				
 				}
 				}
 			}catch (Exception e) {
